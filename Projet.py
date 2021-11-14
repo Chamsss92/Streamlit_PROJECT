@@ -52,8 +52,7 @@ def load(dataframe):
     
 
     df = pd.read_csv(dataframe,sep=',',low_memory=False)
-    df = df.sample(700000)
-    df = df.sort_values(by = ['code_departement'])
+    
     return df
 
 def topdata(df):
