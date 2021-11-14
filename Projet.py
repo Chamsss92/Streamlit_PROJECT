@@ -162,15 +162,13 @@ def map_pourcent(df):
     st.map(df1[np.isnan(df1['latitude']) == False])
 
 def compare_data(df, column1, column2):
+    
     c1 = df[column1]
     c2 = df[column2]
-
-   compare = pd.concat([c1, c2], axis=1)
-
-   fig1, ax = plt.subplots()
-   ax.plot(compare)
-
-   st.pyplot(fig1)
+    compare = pd.concat([c1, c2], axis=1)
+    fig1, ax = plt.subplots()
+    ax.plot(compare)
+    st.pyplot(fig1)
 
 def locd_df(df, colu, param):
     return df.loc[df[colu] == param] 
