@@ -48,7 +48,6 @@ def count_rows(rows):
 
 
 @st.cache  
-@check_time(func)
 def load(dataframe):
     
 
