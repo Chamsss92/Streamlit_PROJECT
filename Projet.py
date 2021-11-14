@@ -11,7 +11,7 @@ from functools import wraps
 import altair as alt
 import seaborn as sns
 from streamlit.proto.Checkbox_pb2 import Checkbox
-import pydeck as pdk
+
 
 
 
