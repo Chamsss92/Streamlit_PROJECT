@@ -2,7 +2,7 @@ import streamlit as st
 import numpy as np
 import random
 import pandas as pd
-#import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 import datetime
 import plotly_express as px
 import time
@@ -161,16 +161,16 @@ def map_pourcent(df):
     df1 = df.sample(frac = percentage/100)
     st.map(df1[np.isnan(df1['latitude']) == False])
 
-#def compare_data(df, column1, column2):
-#    c1 = df[column1]
-#   c2 = df[column2]
+def compare_data(df, column1, column2):
+    c1 = df[column1]
+    c2 = df[column2]
 
-#   compare = pd.concat([c1, c2], axis=1)
+   compare = pd.concat([c1, c2], axis=1)
 
- #  fig1, ax = plt.subplots()
- #  ax.plot(compare)
+   fig1, ax = plt.subplots()
+   ax.plot(compare)
 
-  # st.pyplot(fig1)
+   st.pyplot(fig1)
 
 def locd_df(df, colu, param):
     return df.loc[df[colu] == param] 
@@ -180,12 +180,12 @@ def pie_chart(df):
     fig = px.pie(countfiltered3, values='nombre_pieces_principales', names=countfiltered3.index, title='distribution des nombres de pièces')
     st.plotly_chart(fig)
 
-#def plot_frequency_by_local_type(dataframe):
-#        figure = plt.figure()
-#        x = ["Appartement","Dépendance", "Local industriel.\ncommercial\nassimilé", "Maison"]
-#        y = dataframe.groupby("type_local").apply(count_rows)
-#        plt.pie(y, labels=x)
-#        return figure
+def plot_frequency_by_local_type(dataframe):
+        figure = plt.figure()
+        x = ["Appartement","Dépendance", "Local industriel.\ncommercial\nassimilé", "Maison"]
+        y = dataframe.groupby("type_local").apply(count_rows)
+        plt.pie(y, labels=x)
+        return figure
 def areachart():
     df1 = df.sample(70000)
     data = pd.DataFrame()
@@ -252,8 +252,8 @@ def option(arg):
         
         classement(df,nb)
         st.header('comparaison du prix en fonction du m2')
-        #compare_data(df,"valeur_fonciere","mettrecarre")
-        #figure = plot_frequency_by_local_type(df)
+        compare_data(df,"valeur_fonciere","mettrecarre")
+        figure = plot_frequency_by_local_type(df)
         st.header("Répartition des différents type de local")
         st.write(figure)
         prixm2(df)
